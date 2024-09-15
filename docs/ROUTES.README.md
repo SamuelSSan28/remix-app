@@ -101,23 +101,13 @@ Esses parâmetros permitem capturar parte da URL como uma variável para uso den
 Um segmento dinâmico é definido com o prefixo `$` no nome do arquivo da rota. 
 Quando a URL correspondente é acessada, o valor desse segmento dinâmico é passado como uma propriedade (`params`) para o componente da rota.
 
-### Exemplo de Estrutura
+ 
 
-Neste exemplo, a rota `/blog/123` capturaria o valor `123` como o `postId`.
+## Rotas com Segmentos Opcionais (Optional Segment Routes)
+Além de segmentos dinâmicos, o Remix também suporta segmentos opcionais nas rotas. Isso significa que uma parte da URL pode ser opcional, e o componente será renderizado independentemente de o segmento estar presente ou não.
 
-### Exemplo de Código
+### Como Funcionam
+Os segmentos opcionais são definidos ao envolver o nome do segmento com parênteses no nome do arquivo.
 
-```jsx
-// app/routes/blog/$postId.jsx
-import { useParams } from "@remix-run/react";
-
-export default function Post() {
-  const { postId } = useParams(); // Captura o valor dinâmico da URL
-  return (
-    <div>
-      <h1>Post ID: {postId}</h1>
-      <p>Este é o conteúdo do post com o ID {postId}.</p>
-    </div>
-  );
-}
-```
+ 
+ ![alt text](image-1.png)
