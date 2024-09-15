@@ -89,3 +89,35 @@ app
 - login.tsx é acessível publicamente.
 
 ![alt text](image.png)
+
+
+## Rotas com Segmentos Dinâmicos (Dynamic Segment Routes)
+
+No Remix, você pode definir rotas com segmentos dinâmicos usando parâmetros na URL. 
+Esses parâmetros permitem capturar parte da URL como uma variável para uso dentro de componentes.
+
+### Como Funcionam
+
+Um segmento dinâmico é definido com o prefixo `$` no nome do arquivo da rota. 
+Quando a URL correspondente é acessada, o valor desse segmento dinâmico é passado como uma propriedade (`params`) para o componente da rota.
+
+### Exemplo de Estrutura
+
+Neste exemplo, a rota `/blog/123` capturaria o valor `123` como o `postId`.
+
+### Exemplo de Código
+
+```jsx
+// app/routes/blog/$postId.jsx
+import { useParams } from "@remix-run/react";
+
+export default function Post() {
+  const { postId } = useParams(); // Captura o valor dinâmico da URL
+  return (
+    <div>
+      <h1>Post ID: {postId}</h1>
+      <p>Este é o conteúdo do post com o ID {postId}.</p>
+    </div>
+  );
+}
+```
